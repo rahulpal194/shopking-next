@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme{
+    --font-urbanist : 'Urbanist sans-serif';
+    --color-primary: #F23E14;
+    --color-black : #1F1F39;
+    --shadow-header : 0 6px 32px 0 rgba(0, 0, 0, 0.04);
+}
+
+@layer base {
+    body {@apply font-urbanist}
+    button {@apply cursor-pointer}
+}
+@layer utilities{
+    .container {@apply max-w-[1158px] w-full mx-auto px-4}
+}
