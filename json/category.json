@@ -1,0 +1,52 @@
+[
+    {
+        "id":1,
+        "name":"Men",
+        "img": "/images/category/men.png"
+    },
+    {
+        "id":2,
+        "name":"Women",
+        "img": "/images/category/women.png"
+    },
+    {
+        "id":3,
+        "name":"Juniors",
+        "img": "/images/category/kids.png"
+    },
+    {
+        "id":4,
+        "name":"Accesories",
+        "img": "/images/category/accesories.png"
+    },
+    {
+        "id":5,
+        "name":"couple",
+        "img": "/images/category/couple.png"
+    },
+    {
+        "id":6,
+        "name":"Shoes",
+        "img": "/images/category/shoes.png"
+    },
+    {
+        "id":7,
+        "name":"Juniors",
+        "img": "/images/category/kids.png"
+    },
+    {
+        "id":8,
+        "name":"Accesories",
+        "img": "/images/category/accesories.png"
+    },
+    {
+        "id":9,
+        "name":"couple",
+        "img": "/images/category/couple.png"
+    },
+    {
+        "id":10,
+        "name":"Shoes",
+        "img": "/images/category/shoes.png"
+    }
+]

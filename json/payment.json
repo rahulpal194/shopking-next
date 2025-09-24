@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "title":"Cash on Delivery",
+        "img":"/images/payment/cod.jpg"
+    },
+    {
+        "id":2,
+        "title":"mastercard",
+        "img":"/images/payment/master.jpg"
+    },
+    {
+        "id":3,
+        "title":"Paypal",
+        "img":"/images/payment/paypal.jpg"
+    },
+    {
+        "id":4,
+        "title":"visa",
+        "img":"/images/payment/visa.jpg"
+    },
+    {
+        "id":5,
+        "title":"American Express",
+        "img":"/images/payment/american.jpg"
+    },
+    {
+        "id":6,
+        "title":"Stripe",
+        "img":"/images/payment/stripe.jpg"
+    }
+]

@@ -6,7 +6,7 @@ export default function FooterLayout (){
         <div className="container">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
                 <div>
-                    <Link href={""}><Image width={125} height={40} className="mb-6 w-auto h-6" src={'/images/logo.png'} alt="logo"/></Link>
+                    <Link href={""}><Image width={500} height={500} className="mb-6 w-auto h-6" src={'/images/logo.png'} alt="logo"/></Link>
                     <p className="text-base mb-3 text-white">Subscribe to our newsletter</p>
                     <form className="flex items-center rounded-full w-full h-10 p-1 mb-6 bg-white">
                         <input type="email" placeholder="Your email address" className="outline-none w-full h-full pl-2"/>

@@ -1,0 +1,22 @@
+ [
+    { 
+        "src": "/images/benefits/heart.png", 
+        "title": "Quality & Savings", 
+        "describe": "Comprehensive quality control and affordable prices" 
+    },
+    { 
+        "src": "/images/benefits/driving.png", 
+        "title": "Fast Delivery", 
+        "describe": "Fast and convenient door to door delivery" 
+    },
+    { 
+        "src": "/images/benefits/wallet.png", 
+        "title": "Secure Payment", 
+        "describe": "Different secure payment methods" 
+    },
+    { 
+        "src": "/images/benefits/message.png", 
+        "title": "Proffessional Service", 
+        "describe": "Efficient customer support from passionate team" 
+    }
+]

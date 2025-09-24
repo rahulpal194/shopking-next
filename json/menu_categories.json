@@ -1,0 +1,131 @@
+[
+    { 
+        "image": "/images/categories/01.png",
+        "title": "vegetables", 
+        "route": "#vegetables-route",
+        "children": [
+            {
+                "title": "clothing",
+                "route": "#clothing-route",
+                "children": [
+                    { "title": "Tops & T-shirt", "route": "#" },
+                    { "title": "Pants & Tights", "route": "#" },
+                    { "title": "Hoodies & Sweatshirts", "route": "#" },
+                    { "title": "Jackets & Vesets", "route": "#" },
+                    { "title": "Shorts", "route": "#" }
+                ]
+            },
+            {
+                "title": "shoes",
+                "route": "#shoes-route",
+                "children": [
+                    { "title": "Sneakers", "route": "#" },
+                    { "title": "Running", "route": "#" },
+                    { "title": "Soccer", "route": "#" },
+                    { "title": "Basketball", "route": "#" },
+                    { "title": "Sandals & Slides", "route": "#" },
+                    { "title": "Outdoor & Hiking", "route": "#" },
+                    { "title": "Workout & Gym", "route": "#" }
+                ]
+            },
+            {
+                "title": "accessories",
+                "route": "#accessories-route",
+                "children": [
+                    { "title": "Hat & Beanies", "route": "#" },
+                    { "title": "Bags & Backpacks", "route": "#" },
+                    { "title": "Balls", "route": "#" },
+                    { "title": "Gloves", "route": "#" },
+                    { "title": "Socks", "route": "#" },
+                    { "title": "Underwear", "route": "#" }
+                ]
+            },
+            { "title": "New Arrivals", "route": "#new-arrivals" },
+            { "title": "Best Sellers", "route": "#best-sellers" },
+            { "title": "Top Rated", "route": "#top-rated" },
+            { "title": "Winter Collections", "route": "#winter-collections" },
+            { "title": "Explore All", "route": "#explore-all" }
+        ]
+    },
+    { 
+        "image": "/images/categories/02.png", 
+        "title": "fruits", 
+        "route": "#fruits-route",
+        "children": [
+            {
+                "title": "clothing",
+                "route": "#clothing-route",
+                "children": [
+                    { "title": "Tops & T-shirt", "route": "#" },
+                    { "title": "Pants & Tights", "route": "#" },
+                    { "title": "Hoodies & Sweatshirts", "route": "#" }
+                ]
+            },
+            {
+                "title": "shoes",
+                "route": "#shoes-route",
+                "children": [
+                    { "title": "Sneakers", "route": "#" },
+                    { "title": "Running", "route": "#" },
+                    { "title": "Soccer", "route": "#" }
+                ]
+            },
+            {
+                "title": "accessories",
+                "route": "#accessories-route",
+                "children": [
+                    { "title": "Hat & Beanies", "route": "#" },
+                    { "title": "Bags & Backpacks", "route": "#" },
+                    { "title": "Balls", "route": "#" }
+                ]
+            },
+            { "title": "New Arrivals", "route": "#new-arrivals" },
+            { "title": "Best Sellers", "route": "#best-sellers" },
+            { "title": "Top Rated", "route": "#top-rated" },
+            { "title": "Winter Collections", "route": "#winter-collections" },
+            { "title": "Explore All", "route": "#explore-all" }
+        ]
+    },
+    { 
+        "image": "/images/categories/03.png", 
+        "title": "seafoods", 
+        "route": "#seafoods-route",
+        "children": [
+            {
+                "title": "clothing",
+                "route": "#clothing-route",
+                "children": [
+                    { "title": "Tops & T-shirt", "route": "#" },
+                    { "title": "Pants & Tights", "route": "#" },
+                    { "title": "Hoodies & Sweatshirts", "route": "#" }
+                ]
+            },
+            {
+                "title": "shoes",
+                "route": "#shoes-route",
+                "children": [
+                    { "title": "Sneakers", "route": "#" },
+                    { "title": "Running", "route": "#" },
+                    { "title": "Soccer", "route": "#" }
+                ]
+            },
+            {
+                "title": "accessories",
+                "route": "#accessories-route",
+                "children": [
+                    { "title": "Hat & Beanies", "route": "#" },
+                    { "title": "Bags & Backpacks", "route": "#" },
+                    { "title": "Balls", "route": "#" }
+                ]
+            },
+            { "title": "New Arrivals", "route": "#new-arrivals" },
+            { "title": "Best Sellers", "route": "#best-sellers" },
+            { "title": "Top Rated", "route": "#top-rated" },
+            { "title": "Winter Collections", "route": "#winter-collections" },
+            { "title": "Explore All", "route": "#explore-all" }
+        ]
+    },
+    { "image": "/images/categories/04.png", "title": "raw meat", "route": "#meat-route" },
+    { "image": "/images/categories/05.png", "title": "fish", "route": "#fish-route" },
+    { "image": "/images/categories/06.png", "title": "oils", "route": "#personal-route" }
+]

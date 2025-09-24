@@ -2,15 +2,114 @@
 
 @theme{
     --font-urbanist : 'Urbanist sans-serif';
+    --font-icon : 'Iconly';
     --color-primary: #F23E14;
     --color-black : #1F1F39;
+    --color-paragraph : #6E7191;
     --shadow-header : 0 6px 32px 0 rgba(0, 0, 0, 0.04);
+    --shadow-card : 0 0 10px 0 rgba(0, 0, 0, 0.04);
+    --shadow-category : 0 6px 32px 0 rgba(0, 0, 0, 0.04);
+    --shadow-productcard : 0 8px 40px 0 rgba(23, 31, 70, 0.08);
+    --shadow-cartBtn : 0 8px 15px 0 rgba(242, 62, 20, 0.18);
+    --shadow-btn : 0 4px 8px 0 rgba(0, 0, 0, 0.04), 0 0 2px 0 rgba(0, 0, 0, 0.06), 0 0 1px 0 rgba(0, 0, 0, 0.04);
+    --shadow-order : 0 6px 15px 0 rgba(253, 0, 99, 0.25);
+    --shadow-return : 0 6px 15px 0 rgba(147, 83, 222, 0.25);
+    --shadow-completed : 0 6px 15px 0 rgba(242, 62, 20, 0.25);
+    --shadow-balance : 0 6px 15px 0 rgba(0, 114, 244, 0.25);
+    --drop-shadow-mobile : 0 4px 32px rgba(0, 0, 0, 0.06);
+    --drop-shadow-cart : 0 6px 10px rgba(242, 62, 20, 0.34);
+    
 }
 
 @layer base {
-    body {@apply font-urbanist}
+    body {@apply font-urbanist scroll-smooth}
     button {@apply cursor-pointer}
+    input {@apply outline-none}
+
+    .see-more-btn {@apply text-xs sm:text-base font-semibold text-primary rounded-full py-2 sm:py-3 px-4 sm:px-6 bg-primary/5 hover:bg-primary hover:text-white transition-all duration-300}
+    .swiper-button-prev, .swiper-button-next { @apply after:!text-sm after:sm:!text-base after:font-bold !w-8 !h-8 leading-8 sm:!w-10 sm:!h-10 sm:!leading-10 text-center rounded-full shadow-lg transition-all duration-300 after:text-primary bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:after:text-white group-hover:bg-primary}
+    .swiper-pagination-bullet {@apply !w-4 !h-1 !rounded-sm}
+    .swiper-pagination-bullet-active{@apply !bg-primary}
+
+    .navigate-swiper { @apply !pt-10 sm:!pt-20 !pb-8 sm:!pb-10 relative}
+    .navigate-swiper .swiper-button-prev { @apply sm:opacity-100 sm:visible !shadow-none w-10 h-10 leading-10 text-center rounded-full bg-[#FFF4F1] text-primary after:content-['\e072'] after:font-icon after:text-xl transition-all duration-300 hover:bg-primary hover:after:text-white !top-6 !left-auto !right-12}
+    .navigate-swiper .swiper-button-next { @apply sm:opacity-100 sm:visible !shadow-none w-10 h-10 leading-10 text-center rounded-full bg-[#FFF4F1] text-primary after:content-['\e071'] after:font-icon after:text-xl transition-all duration-300 hover:bg-primary hover:after:text-white !top-6 !right-0 }
+
+    .drawer {@apply fixed top-0 z-[999] left-0 inset-0 w-full bg-black/40 transition-all duration-500 opacity-0 invisible}
+    .drawer.active {@apply !opacity-100 !visible}
+    .drawer-content {@apply absolute right-0 translate-x-full overflow-y-scroll max-w-sm w-full h-full bg-white transition-all duration-500}
+    .drawer.active .drawer-content {@apply -translate-x-0}
+
+    .modal {@apply fixed z-[999] bg-black/40 w-full inset-0 flex justify-center py-10 opacity-0 invisible overflow-auto transition-all duration-300}
+    .modal.active { @apply opacity-100 visible}
+    .modal-content {@apply bg-white rounded-2xl mx-5 max-w-2xs w-full h-fit -mt-5 invisible opacity-0 relative transition-all duration-500}
+    .modal.active .modal-content{@apply mt-5 visible opacity-100}
+
+
+    #menu .drawer-content {@apply !-translate-x-full !left-0}
+    #menu.drawer.active .drawer-content {@apply !translate-x-0}
+
+    .required {@apply after:content-['*'] after:text-red-500}
+
+    .shipping-type {@apply bg-[#EAF6FF] h-8 w-fit rounded-full flex items-center text-[#007FE3] text-sm font-semibold cursor-pointer}
+     .delivery.active{@apply bg-[#007FE3] text-white h-8 px-4 w-fit rounded-full}
+     .pickup.active {@apply bg-[#007FE3] text-white h-8 px-4 w-fit rounded-full}
+
+    .category-group:hover .category-list {@apply scale-y-100 origin-top}
+    .category-list { @apply absolute top-11 z-10 left-0 w-52 py-2 rounded-lg bg-white scale-y-0 origin-top transition-all duration-300}
+    .category-item { @apply relative px-4 }
+    .category-menu { @apply w-full h-10 flex items-center justify-between gap-2 border-b border-gray-100 transition-all duration-300 }
+    .category-nest { @apply absolute top-0 left-48 w-52 py-2 rounded-lg bg-white opacity-0 invisible transition-all duration-300 }
+    .category-item:hover > .category-nest { @apply visible opacity-100 left-52 }
+    .category-item:hover > .category-menu { @apply text-primary }
+    .category-item:last-child > .category-menu { @apply border-none }
+
+    #details , #videos, #reviews , #shipping {@apply hidden }
+    #details.active ,#videos.active, #reviews.active , #shipping.active{@apply block}
+
+    .productSwiperthumb .swiper-slide.swiper-slide-thumb-active {@apply !border-primary }
+    .productSwiperthumb .swiper-slide {@apply border border-transparent }
+
+    .payment-method {@apply cursor-pointer h-16 w-auto p-2 shadow-card rounded-lg border border-transparent text-center}
+    .payment-method.active {@apply border-primary bg-[#FFF4F1]}
+
+    label:has(.custom-radio:checked) {@apply !border-primary !bg-[#FFF4F1]}
+
+    .iti{@apply w-full h-12 outline-none focus-within:border-primary rounded-lg border border-[#D9DBE9]}
+    .iti__tel-input{@apply h-full w-full outline-none}
+    .iti__search-input{@apply hidden}
+    .iti__country-list{@apply overflow-y-auto transition}
+    .iti__country-list:hover::-webkit-scrollbar-thumb { @apply bg-primary}
+    .iti__country-list::-webkit-scrollbar { @apply w-[3px]}
+    .iti__country-list::-webkit-scrollbar { @apply rounded-2xl bg-transparent }
+
+        /* TABLE */
+    .db-table-responsive {@apply shadow-category rounded-2xl bg-white mb-20}
+    .db-table {@apply table-auto w-full text-left whitespace-nowrap }
+    .db-table.stripe .db-table-body-tr {@apply odd:!bg-[#f9fafb] }
+    .db-table-head {@apply text-left border-b-2 border-gray-200 }
+    .db-table-body {@apply text-left }
+    .db-table-head-th {@apply p-4 text-sm font-semibold capitalize }
+    .db-table-head-th:last-child {@apply text-center}
+    .db-table-body-tr {@apply border-b border-gray-200 last:border-none }
+    .db-table-body-td {@apply p-4 text-sm }
+    .db-table-body-td:last-child {@apply flex justify-center}
+    .db-table-badge {@apply py-1 px-2 rounded-full capitalize }
+    .db-table-action {@apply relative }
+    .db-table-action i {@apply text-sm p-2 py-1 m-0.5 rounded transition }
+    .db-table-action.view i {@apply text-primary bg-primary/10 hover:bg-primary/20 }
+    .db-table-action.edit i {@apply text-green-500 bg-green-100 hover:bg-green-200 }
+    .db-table-action.delete i {@apply text-red-500 bg-red-100 hover:bg-red-200 }
+    .table-filter-div {@apply h-0 overflow-hidden transition-all duration-500 ease-linear }
+
+    .dropdown-list {@apply absolute top-12 right-0 shadow-lg rounded-2xl z-10 p-3 bg-white transition-all duration-300 origin-top scale-y-0 group-hover:scale-y-100}
 }
 @layer utilities{
     .container {@apply max-w-[1158px] w-full mx-auto px-4}
+    
+    .custom-checkbox {@apply cursor-pointer appearance-none relative w-4 h-4 border border-black checked:border-none rounded-sm checked:bg-primary checked:after:content-['\2713'] text-white text-xs  after:absolute checked:after:left-1}
+    .custom-radio {@apply accent-primary}
+    .range-slider{@apply py-4 relative mx-2} 
+    .range-slider input{@apply w-full absolute top-1/2 -translate-y-1/2}
+    .range-progress {@apply absolute h-1}
 }

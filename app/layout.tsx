@@ -1,9 +1,21 @@
+
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./styles/globals.css";
+import "./styles/custom.css";
 import "@/public/icon/iconly.css";
+import "intl-tel-input/styles";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 import HeaderLayouts from "@/layout/HeaderLayouts";
 import FooterLayout from "@/layout/FooterLayout";
+import MobileLayout from "@/layout/MobileLayout";
+import CartLayout from "@/layout/CartLayout";
+import ReduxProvider from "@/components/ReduxProvider";
+import MenuSidebar from "@/layout/MenuSidebar";
+import ProfileSidebar from "@/layout/ProfileSidebar";
 
 const urbanist = Urbanist({
   variable : '--font-urbanist',
@@ -22,12 +34,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${urbanist.variable} antialiased`}
-      >
-        <HeaderLayouts/>
-           {children}
-        <FooterLayout/>
+      <body className={`${urbanist.variable} antialiased`}>
+          <ReduxProvider>
+            <HeaderLayouts/>
+            <MenuSidebar/>
+            <ProfileSidebar/>
+            <MobileLayout/>
+            <CartLayout/>
+               {children}
+            <FooterLayout/>
+          </ReduxProvider>
       </body>
     </html>
   );
