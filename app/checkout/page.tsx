@@ -86,7 +86,7 @@ export default function Checkout (){
                             </label>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2 mb-6">
+                    <div className="flex items-center gap-2 sm:mb-6">
                         <input type="checkbox" name="address" id="address" className="custom-checkbox" />
                         <label htmlFor="address">Save shipping address as a billing address.</label>
                     </div>
@@ -110,8 +110,8 @@ export default function Checkout (){
                 </div>
             </div>
             <div className="md:hidden flex justify-between">
-                <button className="h-12 px-6 rounded-full text-base font-bold bg-[#F7F7FC]">Back to Cart</button>
-                <button className="h-12 px-6 rounded-full text-base font-bold text-white bg-primary">Confirm Order</button>
+                <Link href={""} className="h-12 px-6 rounded-full text-base leading-12 font-bold bg-[#F7F7FC]">Back to Cart</Link>
+                <Link href={"/acc"} className="h-12 px-6 rounded-full text-base leading-12 font-bold text-white bg-primary">Confirm Order</Link>
             </div>
         </section>
 

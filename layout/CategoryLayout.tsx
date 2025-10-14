@@ -6,7 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function CategoryLayout (){
-    const {openCanvas , closeCanvas} = useCanvas()
+    const {closeCanvas} = useCanvas()
     return(
         <aside className="drawer" id="category">
             <div className="drawer-content left">
@@ -19,12 +19,7 @@ export default function CategoryLayout (){
                 
                 <ul className="list-none">
                     {categories.map((category, index) => (
-                        <NestedMenuComponent
-                            key={`cat-${index}`}
-                            item={category}
-                            path={`cat-${index}`}
-                            parentPaths={['category']}
-                        />
+                        <NestedMenuComponent key={`cat-${index}`} item={category}path={`cat-${index}`} parentPaths='category'/>
                     ))}
                 </ul>
             </div>
