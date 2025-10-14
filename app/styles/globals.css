@@ -40,12 +40,13 @@
     .drawer.active {@apply !opacity-100 !visible}
     .drawer-content {@apply absolute right-0 translate-x-full overflow-y-scroll max-w-sm w-full h-full bg-white transition-all duration-500}
     .drawer.active .drawer-content {@apply -translate-x-0}
+    .drawer-content.left {@apply left-0 right-auto -translate-x-full}
+    .drawer.active .drawer-content.left {@apply translate-x-0}
 
     .modal {@apply fixed z-[999] bg-black/40 w-full inset-0 flex justify-center py-10 opacity-0 invisible overflow-auto transition-all duration-300}
     .modal.active { @apply opacity-100 visible}
     .modal-content {@apply bg-white rounded-2xl mx-5 max-w-2xs w-full h-fit -mt-5 invisible opacity-0 relative transition-all duration-500}
     .modal.active .modal-content{@apply mt-5 visible opacity-100}
-
 
     #menu .drawer-content {@apply !-translate-x-full !left-0}
     #menu.drawer.active .drawer-content {@apply !translate-x-0}
@@ -71,18 +72,18 @@
     .productSwiperthumb .swiper-slide.swiper-slide-thumb-active {@apply !border-primary }
     .productSwiperthumb .swiper-slide {@apply border border-transparent }
 
-    .payment-method {@apply cursor-pointer h-16 w-auto p-2 shadow-card rounded-lg border border-transparent text-center}
+    .payment-method {@apply cursor-pointer w-auto p-2 py-4 shadow-card rounded-lg border border-transparent text-center}
     .payment-method.active {@apply border-primary bg-[#FFF4F1]}
 
     label:has(.custom-radio:checked) {@apply !border-primary !bg-[#FFF4F1]}
 
     .iti{@apply w-full h-12 outline-none focus-within:border-primary rounded-lg border border-[#D9DBE9]}
     .iti__tel-input{@apply h-full w-full outline-none}
-    .iti__search-input{@apply hidden}
+    .iti__search-input, .iti__search-input-wrapper{@apply !hidden}
     .iti__country-list{@apply overflow-y-auto transition}
     .iti__country-list:hover::-webkit-scrollbar-thumb { @apply bg-primary}
     .iti__country-list::-webkit-scrollbar { @apply w-[3px]}
-    .iti__country-list::-webkit-scrollbar { @apply rounded-2xl bg-transparent }
+    .iti__country-list::-webkit-scrollbar { @apply rounded-2xl bg-transparent}
 
         /* TABLE */
     .db-table-responsive {@apply shadow-card rounded-2xl bg-white}
@@ -103,11 +104,14 @@
     .db-table-action.delete i {@apply text-red-500 bg-red-100 hover:bg-red-200 }
     .table-filter-div {@apply h-0 overflow-hidden transition-all duration-500 ease-linear }
     .dropdown-list {@apply absolute top-12 right-0 shadow-lg rounded-2xl z-10 p-3 bg-white transition-all duration-300 origin-top scale-y-0 group-hover:scale-y-100}
+    
+    input[type=file]{@apply h-12 text-lg border border-[#D9DBE9] rounded-lg outline-none flex items-center cursor-pointer}
+    input[type=file]::file-selector-button{@apply text-base font-medium px-4 py-2.5 mr-4 leading-tight h-full border-r border-gray-200 cursor-pointer}
 }
 @layer utilities{
     .container {@apply max-w-[1158px] w-full mx-auto px-4}
     
-    .custom-checkbox {@apply cursor-pointer appearance-none relative w-4 h-4 border border-black checked:border-none rounded-sm checked:bg-primary checked:after:content-['\2713'] text-white text-xs  after:absolute checked:after:left-1}
+    .custom-checkbox {@apply cursor-pointer appearance-none relative w-4 h-4 border border-black checked:border-none rounded-sm checked:bg-primary checked:after:content-['\2713'] text-white text-xs after:absolute checked:after:left-1}
     .custom-radio {@apply accent-primary}
     .range-slider{@apply py-4 relative mx-2} 
     .range-slider input{@apply w-full absolute top-1/2 -translate-y-1/2}

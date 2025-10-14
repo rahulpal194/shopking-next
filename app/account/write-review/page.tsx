@@ -17,7 +17,7 @@ export default function WriteReview (){
     };
     return (
         <section className="mb-20">
-            <div className="rounded-2xl bg-white shadow-card">
+            <div className="rounded-2xl bg-white shadow-card mb-6">
                 <div className="border-b border-[#D9DBE9] mb-4 sm:mb-6">
                     <div className="py-4 sm:py-6 mx-4 sm:mx-6 flex gap-3 border-b last:border-0 border-dashed border-gray-100">
                         <img src="https://d91ztyz4qy326.cloudfront.net/shopking/536/conversions/1-thumb.png" alt="product" className="w-14 h-14 object-cover rounded-md flex-shrink-0"/>
@@ -82,6 +82,7 @@ export default function WriteReview (){
                     </div>
                 </div>
             </div>
+             <button className="bg-primary px-6 rounded-full h-12 leading-12 text-base font-bold text-white">Submit Review</button>
         </section>
     )
 }

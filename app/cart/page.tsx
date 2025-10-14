@@ -20,7 +20,7 @@ export default function Cart (){
            title:"payment" 
         }]
     return (
-        <section className="container">
+        <section className="container mb-20">
             <div className="flex items-start gap-2 mb-12">
                 <button>
                     <i className="icon-undo text-2xl text-primary"></i>
@@ -33,9 +33,9 @@ export default function Cart (){
             <div className="mb-12 mx-4">
                 <MultiStepperComponent currentstep="cart" steps={steps}/>
             </div>
-            <div className="grid grid-cols-12 gap-6">
+            <div className="grid grid-cols-12 gap-6 mb-8">
                 <div className="col-span-12 md:col-span-8">
-                    <div className="shadow-card mb-6">
+                    <div className="shadow-card sm:mb-6 rounded-2xl">
                         <ul className="px-4 pt-4 pb-10 sm:pb-4 overflow-y-auto">
                             <li className="flex items-start gap-3 pb-4 mb-4 border-b last:mb-0 last:pb-0 last:border-none border-gray-100">
                                 <img src="https://d91ztyz4qy326.cloudfront.net/shopking/106/conversions/1-cover.png" alt="products" className="w-28 rounded-lg flex-shrink-0"/>
@@ -85,7 +85,7 @@ export default function Cart (){
                             </li>
                         </ul>
                     </div>
-                    <div className="flex justify-end">     
+                    <div className="hidden md:flex justify-end">     
                         <Link href={'/checkout'} className="h-12 px-6 flex items-center rounded-full text-base font-bold text-white bg-primary">Procced to Checkout</Link>
                     </div>
                 </div>
@@ -134,6 +134,9 @@ export default function Cart (){
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="md:hidden flex justify-end">     
+                <Link href={'/checkout'} className="h-12 px-6 flex items-center rounded-full text-base font-bold text-white bg-primary">Procced to Checkout</Link>
             </div>
         </section>
     )

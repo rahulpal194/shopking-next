@@ -2,16 +2,16 @@ export default function CanelOrder (){
     return (
         <section>
             <h3 className="text-primary text-2xl font-bold mb-6 leading-tight">Order Details</h3>
-            <div className="p-6 rounded-2xl bg-white shadow-card mb-20">
+            <div className="p-4 sm:p-6 rounded-2xl bg-white shadow-card mb-20">
                 <div className="mb-6 text-center">
                     <h6 className="text-[22px] font-semibold mb-3">Thank You</h6>
                     <p className="text-sm font-medium mb-2">Your Order status is as follows</p>
                     <p className="text-sm font-semibold">Order ID: <span className="text-primary"> #16532478965</span></p>
                     
                 </div>
-                <div className="mb-8 text-red-500 border border-red-500 rounded-2xl mx-auto w-fit px-10 py-5">
-                    <i></i>
-                    <span className="text-lg font-bold">Order Canceled</span>
+                <div className="mb-8 text-red-500 border border-red-500 rounded-2xl mx-auto w-fit px-10 py-5 flex items-center gap-2">
+                    <i className="icon-fill-close-circle text-2xl"></i>
+                    <span className="text-lg font-bold leading-tight">Order Canceled</span>
                 </div>
                 <div className="grid grid-cols-12 gap-6">
                     <div className="col-span-12 md:col-span-5 flex flex-col gap-6">

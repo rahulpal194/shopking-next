@@ -16,6 +16,7 @@ import CartLayout from "@/layout/CartLayout";
 import ReduxProvider from "@/components/ReduxProvider";
 import MenuSidebar from "@/layout/MenuSidebar";
 import ProfileSidebar from "@/layout/ProfileSidebar";
+import CategoryLayout from "@/layout/CategoryLayout";
 
 const urbanist = Urbanist({
   variable : '--font-urbanist',
@@ -41,6 +42,7 @@ export default function RootLayout({
             <ProfileSidebar/>
             <MobileLayout/>
             <CartLayout/>
+            <CategoryLayout/>
                {children}
             <FooterLayout/>
           </ReduxProvider>

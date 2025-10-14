@@ -7,7 +7,9 @@ export default function PhoneInput (){
         initOptions={{
         separateDialCode:true,
         initialCountry: "bd",
+
         }}
+        
         />
     )
 }

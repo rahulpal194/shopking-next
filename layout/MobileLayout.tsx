@@ -14,7 +14,7 @@ export default function MobileLayout (){
                     <i className="icon-home text-lg"></i>
                     <span className="text-xs font-medium">Home</span>
                 </Link>
-                <Link href={''} className="flex gap-1 flex-col items-center">
+                <Link onClick={()=>openCanvas('category')} href={''} className="flex gap-1 flex-col items-center">
                     <i className="icon-category text-lg"></i>
                     <span className="text-xs font-medium">Category</span>
                 </Link>

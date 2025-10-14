@@ -107,7 +107,6 @@ export default function HeaderLayouts (){
                         <i className="icon-cart text-white text-xl"></i>
                     </button>
                 </div>
-
                 <div className="relative group lg:hidden block">
                     <button className="">
                         <i className="icon-search"></i>

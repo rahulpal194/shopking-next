@@ -24,7 +24,7 @@ export default function Payment (){
 
     return (
         <>
-        <section className="container">
+        <section className="container mb-20">
             <div className="flex items-start gap-2 mb-12">
                 <button>
                     <i className="icon-undo text-2xl text-primary"></i>
@@ -37,7 +37,7 @@ export default function Payment (){
             <div className="mb-12 mx-4">
                 <MultiStepperComponent currentstep="payment" steps={steps}/>
             </div>
-            <div className="grid grid-cols-12 gap-6">
+            <div className="grid grid-cols-12 gap-6 mb-8">
                 <div className="col-span-12 md:col-span-8">
                     <div className="mb-6 p-4 rounded-2xl shadow-card">
                         <h6 className="text-base font-semibold mb-4">Select Payment Method</h6>
@@ -50,7 +50,7 @@ export default function Payment (){
                             ))}
                         </div>
                     </div>
-                    <div className="flex justify-between">
+                    <div className="justify-between md:flex hidden">
                         <button className="h-12 px-6 rounded-full text-base font-bold bg-[#F7F7FC]">Back to Checkout</button>
                         <button className="h-12 px-6 rounded-full text-base font-bold text-white bg-primary">Confirm Order</button>
                     </div>
@@ -68,6 +68,10 @@ export default function Payment (){
                     </div>
                     <OrderSummaryComponent/>
                 </div>
+            </div>
+            <div className="justify-between md:hidden flex">
+                <button className="h-12 px-6 rounded-full text-base font-bold bg-[#F7F7FC]">Back to Checkout</button>
+                <button className="h-12 px-6 rounded-full text-base font-bold text-white bg-primary">Confirm Order</button>
             </div>
         </section>
 

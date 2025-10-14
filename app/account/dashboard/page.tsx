@@ -30,6 +30,7 @@ export default function Dashboard (){
         <div>
             <h3 className="text-[22px] font-bold mb-6">Order History</h3>
             <div className="db-table-responsive">
+                <div className="max-md:overflow-x-auto">
                 <table className="db-table">
                     <thead className="db-table-head">
                         <tr className="db-table-head-tr">
@@ -38,75 +39,36 @@ export default function Dashboard (){
                             <th className="db-table-head-th">Order Status</th>
                             <th className="db-table-head-th">Payment Status</th>
                             <th className="db-table-head-th">Total</th>
-                            <th className="db-table-head-th">Action</th>
+                            <th className="db-table-head-th text-start">Action</th>
                         </tr>
                     </thead>
                     <tbody className="db-table-body">
                         <tr className="db-table-body-tr">
-                            <td className="db-table-body-td font-medium">#16532478965</td>
-                            <td className="db-table-body-td">miron mahmud</td>
-                            <td className="db-table-body-td">miron@example</td>
-                            <td className="db-table-body-td">25 august 2022</td>
-                            <td className="db-table-body-td"><span className="db-table-badge text-green-600 bg-green-100">successful</span></td>
-                            <td className="db-table-body-td">
-                                <button className="db-btn-outline sm primary modal-btn m-0.5" data-modal="#modal-content">
-                                    <i className="fa-solid fa-eye"></i>
-                                    <span>view</span>
-                                </button>
-                                <button className="db-btn-outline sm success modal-btn m-0.5" data-modal="#modal-content">
-                                    <i className="fa-solid fa-pen-to-square"></i>
-                                    <span>edit</span>
-                                </button>
-                                <button className="db-btn-outline sm danger modal-btn m-0.5" data-modal="#modal-alert">
-                                    <i className="fa-solid fa-trash-can"></i>
-                                    <span>delete</span>
-                                </button>
+                            <td className="db-table-body-td font-medium">
+                                <div className="flex flex-col gap-3">
+                                    <span className="text-sm font-semibold leading-tight">#16532478965</span>
+                                    <span className="text-xs font-medium leading-tight text-paragraph">7 July, 2022</span>
+                                </div>
                             </td>
-                        </tr>
-                        <tr className="db-table-body-tr">
-                            <td className="db-table-body-td font-medium">348</td>
-                            <td className="db-table-body-td">miron mahmud</td>
-                            <td className="db-table-body-td">miron@example</td>
-                            <td className="db-table-body-td">25 august 2022</td>
-                            <td className="db-table-body-td"><span className="db-table-badge text-yellow-600 bg-yellow-100">pending</span></td>
-                            <td className="db-table-body-td">
-                                <button className="db-btn-outline sm primary modal-btn m-0.5" data-modal="#modal-content">
-                                    <i className="fa-solid fa-eye"></i>
-                                    <span>view</span>
-                                </button>
-                                <button className="db-btn-outline sm success modal-btn m-0.5" data-modal="#modal-content">
-                                    <i className="fa-solid fa-pen-to-square"></i>
-                                    <span>edit</span>
-                                </button>
-                                <button className="db-btn-outline sm danger modal-btn m-0.5" data-modal="#modal-alert">
-                                    <i className="fa-solid fa-trash-can"></i>
-                                    <span>delete</span>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr className="db-table-body-tr">
-                            <td className="db-table-body-td font-medium">348</td>
-                            <td className="db-table-body-td">miron mahmud</td>
-                            <td className="db-table-body-td">miron@example</td>
-                            <td className="db-table-body-td">25 august 2022</td>
-                            <td className="db-table-body-td"><span className="db-table-badge text-red-600 bg-red-100">cancel</span></td>
-                            <td className="db-table-body-td">
-                                <button className="db-btn-outline sm primary modal-btn m-0.5" data-modal="#modal-content">
-                                    <i className="fa-solid fa-eye"></i>
-                                    <span>view</span>
-                                </button>
-                                <button className="db-btn-outline sm success modal-btn m-0.5" data-modal="#modal-content">
-                                    <i className="fa-solid fa-pen-to-square"></i>
-                                    <span>edit</span>
-                                </button>
-                                <button className="db-btn-outline sm danger modal-btn m-0.5" data-modal="#modal-alert">
-                                    <i className="fa-solid fa-trash-can"></i>
-                                    <span>delete</span>
-                                </button>
+                            <td className="db-table-body-td">1 Product</td>
+                            <td className="db-table-body-td"><span className="db-table-badge text-green-600 ">successful</span></td>
+                            <td className="db-table-body-td"><span className="db-table-badge text-green-600 bg-green-100">paid</span></td>
+                            <td className="db-table-body-td">$5020</td>
+                            <td className="db-table-body-td table-cell">
+                                <div className="dropdown-group w-fit relative group">
+                                    <button className="flex items-center justify-center dropdown-btn text-sm w-7 h-7 leading-7 text-center rounded-lg bg-primary text-white shadow-more">
+                                        <i className="icon-more-circle"></i>
+                                    </button>
+                                    <div className="dropdown-list w-fit flex flex-col items-start">
+                                        <button className="w-full text-sm capitalize py-1.5 pl-2.5 pr-5 rounded-md transition hover:bg-gray-100 hover:text-primary">edit</button>
+                                        <button className="w-full text-sm capitalize py-1.5 pl-2.5 pr-5 rounded-md transition hover:bg-gray-100 hover:text-primary">download</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table>        
+                </div>
             </div>         
         </div>
     </section>

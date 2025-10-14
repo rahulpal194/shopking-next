@@ -3,6 +3,7 @@ import MultiStepperComponent from "@/components/MultiStepperComponent";
 import OrderSummaryComponent from "@/components/OrderSummaryComponent";
 import PhoneInput from "@/components/PhoneInput";
 import useModal from "@/hooks/useModal";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Checkout (){
@@ -23,7 +24,7 @@ export default function Checkout (){
         }]
     return (
         <>
-        <section className="container">
+        <section className="container mb-20">
             <div className="flex items-start gap-2 mb-12">
                 <button>
                     <i className="icon-undo text-2xl text-primary"></i>
@@ -36,7 +37,7 @@ export default function Checkout (){
             <div className="mb-12 mx-4">
                 <MultiStepperComponent currentstep="checkout" steps={steps}/>
             </div>
-            <div className="grid grid-cols-12 gap-6">
+            <div className="grid grid-cols-12 gap-6 mb-8">
                 <div className="col-span-12 md:col-span-8">
                     <div className="flex mb-4 gap-4 shipping-type">
                         <button onClick={()=>setShippingType('delivery')} className={`delivery pl-4 transition-all duration-300 ${shippingtype=='delivery'? 'active ':''}`}>
@@ -46,7 +47,6 @@ export default function Checkout (){
                             Pick Up
                         </button>
                     </div>
-
                     <div className="mb-6 rounded-2xl shadow-card">
                         <div className="flex flex-wrap items-center justify-between gap-3 p-4 border-b border-gray-100">
                             <h4 className="font-bold capitalize">Shipping Address</h4>
@@ -86,6 +86,14 @@ export default function Checkout (){
                             </label>
                         </div>
                     </div>
+                    <div className="flex items-center gap-2 mb-6">
+                        <input type="checkbox" name="address" id="address" className="custom-checkbox" />
+                        <label htmlFor="address">Save shipping address as a billing address.</label>
+                    </div>
+                     <div className="hidden md:flex justify-between">
+                        <button className="h-12 px-6 rounded-full text-base font-bold bg-[#F7F7FC]">Back to Cart</button>
+                        <button className="h-12 px-6 rounded-full text-base font-bold text-white bg-primary">Confirm Order</button>
+                    </div>
                 </div>
                 <div className="col-span-12 md:col-span-4">
                     <div onClick={()=>openModal("coupon")} className="mb-6 rounded-2xl border border-[#006CC0] flex items-center gap-3 p-4 cursor-pointer">
@@ -100,6 +108,10 @@ export default function Checkout (){
                     </div>
                     <OrderSummaryComponent/>
                 </div>
+            </div>
+            <div className="md:hidden flex justify-between">
+                <button className="h-12 px-6 rounded-full text-base font-bold bg-[#F7F7FC]">Back to Cart</button>
+                <button className="h-12 px-6 rounded-full text-base font-bold text-white bg-primary">Confirm Order</button>
             </div>
         </section>
 

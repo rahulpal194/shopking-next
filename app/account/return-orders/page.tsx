@@ -13,7 +13,7 @@ export default function ReturnOrders (){
                             <th className="db-table-head-th">Info</th>
                             <th className="db-table-head-th">Return Status</th>
                             <th className="db-table-head-th">Amount</th>
-                            <th className="db-table-head-th">Action</th>
+                            <th className="db-table-head-th text-start">Action</th>
                         </tr>
                     </thead>
                     <tbody className="db-table-body">
@@ -25,9 +25,9 @@ export default function ReturnOrders (){
                                 </div>
                             </td>
                             <td className="db-table-body-td">1 Product</td>
-                            <td className="db-table-body-td">Pending</td>
+                            <td className="db-table-body-td text-[#F6A609]">Pending</td>
                             <td className="db-table-body-td">$5020.00</td>
-                            <td className="db-table-body-td">
+                            <td className="db-table-body-td table-cell">
                                 <Link href={"/account/return-order-details"} className="flex items-center justify-center text-base w-7 h-7 leading-7 text-center rounded-lg bg-primary text-white shadow-more">
                                     <i className="icon-fill-eye"></i>
                                 </Link>
