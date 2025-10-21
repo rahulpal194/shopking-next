@@ -2,7 +2,6 @@
 import PhoneInput from "@/components/PhoneInput";
 import Image from "next/image";
 import Link from "next/link";
-import 'react-phone-input-2/lib/style.css'
 
 export default function Logout (){
     return (
@@ -23,7 +22,6 @@ export default function Logout (){
                                 <button className="text-sm font-medium underline text-primary">*Use Email Instead</button>
                             </div>
                             <PhoneInput/>
-                            {/* <input type="text" className="h-12 px-4 text-lg border border-[#D9DBE9] rounded-lg outline-none"/> */}
                         </div>
                         <div className="flex flex-col mb-3">
                             <label htmlFor="password" className="text-sm font-medium">Password</label>
