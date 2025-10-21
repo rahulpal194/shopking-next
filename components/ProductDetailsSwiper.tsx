@@ -2,9 +2,10 @@
 import { useState } from "react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from 'swiper';
 
 export default function ProductSwiper (){
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
     return (
     <>
       <Swiper loop={true} spaceBetween={12} navigation={true} thumbs={{ swiper: thumbsSwiper }} modules={[FreeMode, Navigation, Thumbs]} className="productSwiper rounded-2xl mb-3 group">

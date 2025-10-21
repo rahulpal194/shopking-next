@@ -118,7 +118,7 @@ export default function ProductDetails (){
                                 <i className="icon-cart text-2xl"></i>
                                 <span>Add to Cart</span>
                             </button>
-                            <button onClick={()=>dispatch(togglewishlist('produt'))} className="px-8 py-3 rounded-full bg-white text-black text-base font-bold flex gap-2 items-center shadow-btn">
+                            <button onClick={()=>dispatch(togglewishlist(({id:1, name:"", price:1, wishlist:true})))} className="px-8 py-3 rounded-full bg-white text-black text-base font-bold flex gap-2 items-center shadow-btn">
                                 <i className="icon-heart text-2xl"></i>
                                 <span>Favorite</span>
                             </button>
