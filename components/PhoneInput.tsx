@@ -1,15 +1,16 @@
-'use client'
-import IntlTelInput from "intl-tel-input/react";
+'use client';
+import 'react-phone-number-input/style.css'
+import { useState } from "react";
+import PhoneInput from "react-phone-number-input/input";
 
-export default function PhoneInput (){
-    return (
-        <IntlTelInput
-        initOptions={{
-        separateDialCode:true,
-        initialCountry: "bd",
-
-        }}
-        
-        />
-    )
+export default function PhoneNumber({register}:any) {
+  const [value, setValue] = useState('')
+  return (
+        <PhoneInput
+            {...register}
+            countryselectprops={{ unicodeFlags: true }}
+            value={value}
+            defaultCountry="US"
+            onChange={setValue}/>
+            );
 }

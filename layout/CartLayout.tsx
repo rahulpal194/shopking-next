@@ -8,6 +8,7 @@ export default function CartLayout (){
    const dispatch = useDispatch()
    const handleCart =(close:boolean)=>{
      dispatch(toggleCart(close))
+    
    }
     return (
         <aside className={`drawer ${isCartOpen ? 'active' : ''}`}>
@@ -16,7 +17,7 @@ export default function CartLayout (){
                     <h3 className="text-[22px] font-bold capitalize">Shopping Cart</h3>
                     <button onClick={()=>handleCart(false)} type="button" className="icon-close-circle text-lg text-red-500"></button>
                 </div>
-                <ul className="px-4 pt-4 pb-10 sm:pb-4 h-[calc(100dvh_-_218px)] overflow-y-auto">
+                <ul className="px-4 pt-4 pb-10 sm:pb-4 h-[calc(100dvh_-_224px)] overflow-y-auto">
                     <li className="flex items-start gap-3 pb-4 mb-4 border-b last:mb-0 last:pb-0 last:border-none border-gray-100">
                         <img src="https://d91ztyz4qy326.cloudfront.net/shopking/106/conversions/1-cover.png" alt="products" className="w-28 rounded-lg flex-shrink-0"/>
                         <div className="relative w-full overflow-hidden">

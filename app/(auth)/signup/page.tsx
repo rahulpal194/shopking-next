@@ -24,8 +24,8 @@ export default function Signup (){
                                 <label htmlFor="phone" className="text-sm font-medium">Phone</label>
                                 <button className="text-sm font-medium underline text-primary">*Use Email Instead</button>
                             </div>
-                            <PhoneInput/>
-                            {/* <input type="text" className="h-12 px-4 text-lg border border-[#D9DBE9] rounded-lg outline-none"/> */}
+                            
+                            <input type="text" id="phone" className="h-12 px-4 text-lg border border-[#D9DBE9] rounded-lg outline-none"/>
                         </div>
                         <div className="flex flex-col mb-4">
                             <label htmlFor="password" className="text-sm font-medium">Password</label>

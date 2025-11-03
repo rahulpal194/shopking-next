@@ -8,13 +8,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@reduxjs/toolkit": "^2.9.0",
     "intl-tel-input": "^25.10.6",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hook-form": "^7.66.0",
+    "react-hot-toast": "^2.6.0",
+    "react-phone-number-input": "^3.4.13",
     "react-redux": "^9.2.0",
-    "swiper": "^11.2.10"
+    "swiper": "^11.2.10",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

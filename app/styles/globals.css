@@ -38,7 +38,7 @@
 
     .drawer {@apply fixed top-0 z-[999] left-0 inset-0 w-full bg-black/40 transition-all duration-500 opacity-0 invisible}
     .drawer.active {@apply !opacity-100 !visible}
-    .drawer-content {@apply absolute right-0 translate-x-full overflow-y-scroll max-w-sm w-full h-full bg-white transition-all duration-500}
+    .drawer-content {@apply absolute right-0 translate-x-full overflow-y-auto max-w-sm w-full h-full bg-white transition-all duration-500}
     .drawer.active .drawer-content {@apply -translate-x-0}
     .drawer-content.left {@apply left-0 right-auto -translate-x-full}
     .drawer.active .drawer-content.left {@apply translate-x-0}
@@ -77,7 +77,7 @@
 
     label:has(.custom-radio:checked) {@apply !border-primary !bg-[#FFF4F1]}
 
-    .iti{@apply w-full h-12 outline-none focus-within:border-primary rounded-lg border border-[#D9DBE9]}
+    [type=tel]{@apply px-4 w-full h-12 outline-none focus-within:border-primary rounded-lg border border-[#D9DBE9]}
     .iti__tel-input{@apply h-full w-full outline-none}
     .iti__search-input, .iti__search-input-wrapper{@apply !hidden}
     .iti__country-list{@apply overflow-y-auto transition}
