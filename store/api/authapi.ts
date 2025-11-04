@@ -22,7 +22,34 @@ export const authapi = createApi({
                     password : data.password,
                 }
             })
+        }),
+        userregister : builder.mutation({
+            query:(data)=>({
+                url: "/auth/signup/register-validation",
+                method: "POST",
+                body:{
+                    name : data.name,
+                    email : data.email,
+                    password : data.password,
+                }
+            })
+        }),
+        verifyemail : builder.mutation({
+            query:(data)=>({
+                url: "/auth/signup/email-validation",
+                method: "POST",
+                body:{
+                    name : data.name,
+                    email : data.email,
+                    password : data.password,
+                }
+            })
+        }),
+        getslider : builder.query<any, void>({
+            query:()=>({
+                url:"/frontend/slider"
+            })
         })
     })
 })
-export const { useUserloginMutation } = authapi
+export const { useUserloginMutation , useUserregisterMutation , useGetsliderQuery } = authapi

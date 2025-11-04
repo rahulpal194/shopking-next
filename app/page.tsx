@@ -7,46 +7,35 @@ import benefits from '@/json/benefits.json'
 import brands from '@/json/brands.json'
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import { useGetsliderQuery } from "@/store/api/authapi";
+import SkeletonLoading from "@/components/SkeletonLoading";
 
 export default function Home() {
+    var { data, error, isLoading } = useGetsliderQuery()
+    const slides = data ?? [];
     return (
       <>
         {/* <!--===============================
                 HERO PART START       
         =================================--> */}
          <section className="container mb-8 sm:mb-12 md:mb-20 group">
-             <SwiperComponent slidesPerView={1} spaceBetween={24} speed={2500} navigation={true} pagination={true} delay={2000}>
-                <SwiperSlide>
-                    <Link href={''}>
-                        <img src="/images/hero/slider1.png" alt="" />
-                    </Link>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Link href={''}>
-                        <img src="/images/hero/slider2.png" alt="" />
-                    </Link>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Link href={''}>
-                        <img src="/images/hero/slider3.png" alt="" />
-                    </Link>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Link href={''}>
-                        <img src="/images/hero/slider1.png" alt="" />
-                    </Link>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Link href={''}>
-                        <img src="/images/hero/slider2.png" alt="" />
-                    </Link>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Link href={''}>
-                        <img src="/images/hero/slider3.png" alt="" />
-                    </Link>
-                </SwiperSlide>
-             </SwiperComponent>
+            {isLoading ? (
+                <SkeletonLoading/>
+                ) : (
+                <SwiperComponent slidesPerView={1} spaceBetween={24} speed={2500} navigation pagination delay={2000}>
+                     {slides.data.map((slide: any, i: number) => (
+                       <SwiperSlide key={slide.id || i}>
+                         <Link href={slide.link || "#"}>
+                           <img
+                             src={slide.image || "/images/hero/slider1.png"}
+                             alt={slide.title || ""}
+                             className="w-full h-auto object-cover rounded-lg"
+                           />
+                         </Link>
+                       </SwiperSlide>
+                     ))}
+                 </SwiperComponent>
+            )}
          </section>
         {/* <!--===============================
                 HERO PART START       

@@ -22,16 +22,22 @@ export default function ToasterComponent (){
           success: {
             duration: 3000,
             iconTheme: {
-              primary: 'green',
-              secondary: 'white',
+              primary: 'white',
+              secondary: 'green',
             },
+            style:{
+              background:"green"
+            }
           },
           error: {
             duration: 3000,
             iconTheme: {
-              primary: 'red',
-              secondary: 'white',
+              primary: 'white',
+              secondary: 'red',
             },
+             style:{
+              background:"red"
+            }
           },
         }}
          />

@@ -18,6 +18,7 @@ import MenuSidebar from "@/layout/MenuSidebar";
 import ProfileSidebar from "@/layout/ProfileSidebar";
 import CategoryLayout from "@/layout/CategoryLayout";
 import ToasterComponent from "@/components/ToastarComponent";
+import SkeletonLoading from "@/components/SkeletonLoading";
 
 const urbanist = Urbanist({
   variable : '--font-urbanist',
@@ -43,6 +44,7 @@ export default function RootLayout({
             <ProfileSidebar/>
             <MobileLayout/>
             <CartLayout/>
+            
             <ToasterComponent/>
             <CategoryLayout/>
                {children}

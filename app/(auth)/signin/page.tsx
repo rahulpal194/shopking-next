@@ -1,26 +1,26 @@
 "use client";
-import PhoneNumber from "@/components/PhoneInput";
 import { loginschema } from "@/features/schema/authschema";
 import { useUserloginMutation } from "@/store/api/authapi";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
 export default function Login (){
-    const {register, handleSubmit } = useForm({resolver: zodResolver(loginschema)})
-    const [ userlogin ]  = useUserloginMutation()
+    const {register, handleSubmit, formState:{errors}} = useForm({resolver: zodResolver(loginschema)})
+    const [ userlogin,  ]  = useUserloginMutation()
+    const router = useRouter()
     const onsubmit = async (data:any) => {
         
          try{
             const result = await userlogin(data).unwrap()
-            toast.success(result.data)
-            
+            toast.success(result.message)
+            router.push("/")
         }
         catch(error){
-            console.log(error)
-            toast.error("something went wrong")
+            toast.error(error?.data?.errors?.validation)
         }
     }
     return (
@@ -43,10 +43,12 @@ export default function Login (){
                             </div>
                             {/* <PhoneNumber register={register("phone")}/> */}
                             <input type="email" id="email" {...register("email")} className="h-12 px-4 text-lg border border-[#D9DBE9] rounded-lg outline-none"/>
+                            {errors.email && <p className='text-[10px] text-red-500'>{errors.email.message}</p>}
                         </div>
                         <div className="flex flex-col mb-3">
                             <label htmlFor="password" className="text-sm font-medium">Password</label>
                             <input type="password" id="password" {...register("password")} className="h-12 px-4 text-lg border border-[#D9DBE9] rounded-lg outline-none"/>
+                            {errors.password && <p className='text-[10px] text-red-500'>{errors.password.message}</p>}
                         </div>
                         <div className="flex items-center justify-between mb-6">
                             <div className="flex items-center gap-2">
