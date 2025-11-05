@@ -7,20 +7,25 @@ import benefits from '@/json/benefits.json'
 import brands from '@/json/brands.json'
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { useGetsliderQuery } from "@/store/api/authapi";
+import { useGetcategoryQuery, useGetpromotionQuery, useGetsliderQuery } from "@/store/api/authapi";
 import SkeletonLoading from "@/components/SkeletonLoading";
 
 export default function Home() {
-    var { data, error, isLoading } = useGetsliderQuery()
-    const slides = data ?? [];
+    const { data: sliderdata, error, isLoading: sliderloading } = useGetsliderQuery()
+    const { data: categorydata , isLoading: categoryloading} = useGetcategoryQuery()
+    const { data: promotiondata , isLoading: promotionloading} = useGetpromotionQuery()
+    const slides = sliderdata ?? [];
+    const categories = categorydata ?? []
+    const promotion = promotiondata ?? []
+    console.log(promotion)
     return (
       <>
         {/* <!--===============================
                 HERO PART START       
         =================================--> */}
          <section className="container mb-8 sm:mb-12 md:mb-20 group">
-            {isLoading ? (
-                <SkeletonLoading/>
+            {sliderloading ? (
+                <SkeletonLoading width="100%" height="400px"/>
                 ) : (
                 <SwiperComponent slidesPerView={1} spaceBetween={24} speed={2500} navigation pagination delay={2000}>
                      {slides.data.map((slide: any, i: number) => (
@@ -58,30 +63,44 @@ export default function Home() {
                     navigation={true}
                     className="navigate-swiper"
                     breakpoints={{
-                         0: {
-                            slidesPerView: "auto",
+                        0: {
+                            slidesPerView: 2,
                             spaceBetween: 12,
                             loop: true,
                         },
+                        640: {
+                            slidesPerView: 3,
+                            spaceBetween: 16,
+                            loop: true,
+                        },
                         900: {
-                            slidesPerView: "auto",
+                            slidesPerView: 4,
                             spaceBetween: 16,
                             loop: true,
                         },
                         1280: {
                             slidesPerView: 6,
                             spaceBetween: 24,
-                            
+                            loop: false,
                         }
-                    }}>
-                    {categories.map((category)=>(
-                    <SwiperSlide className="!w-fit rounded-2xl shadow-category group">
-                        <Link href={''} >
-                            <img className="max-sm:h-16 w-auto rounded-tl-2xl rounded-tr-2xl" src={category.img} alt="category"/>
-                            <span className="text-sm sm:text-xl font-medium capitalize text-center py-1 sm:py-2 px-3 overflow-hidden whitespace-nowrap text-ellipsis block rounded-bl-lg sm:rounded-bl-2xl rounded-br-lg sm:rounded-br-2xl group-hover:text-primary">{category.name}</span>
-                        </Link>
-                    </SwiperSlide>
-                     ))}
+                        }}>
+                            {categoryloading ? (
+                                Array.from({ length: 6 }).map((_, index) => (
+                                    <SwiperSlide key={`skeleton-${index}`} className="rounded-2xl shadow-category group">
+                                        <SkeletonLoading height="160px" width="100%"/>
+                                    </SwiperSlide>
+                                ))
+                            ) : (
+                            categories.data.map((category: any) => (
+                                <SwiperSlide key={category.id || category.name} className="rounded-2xl shadow-category group">
+                                    <Link href={`/category/${category.slug || category.id}`}>
+                                        <img className="max-sm:h-16 w-auto rounded-tl-2xl rounded-tr-2xl" src={category.thumb} alt={category.name}/>
+                                        <span className="text-sm sm:text-xl font-medium capitalize text-center py-1 sm:py-2 px-3 overflow-hidden whitespace-nowrap text-ellipsis block rounded-bl-lg sm:rounded-bl-2xl rounded-br-lg sm:rounded-br-2xl group-hover:text-primary">
+                                            {category.name}
+                                        </span>
+                                    </Link>
+                                </SwiperSlide>
+                            )))}
                 </SwiperComponent>
             </div>
         </section>
@@ -94,9 +113,20 @@ export default function Home() {
         =================================--> */}
         <section className="container mb-20">
             <div className="grid sm:grid-cols-3 gap-6">
-                <img src="/images/promotion/promotion1.png" alt="" />
-                <img src="/images/promotion/promotion2.png" alt="" />
-                <img src="/images/promotion/promotion3.png" alt="" />
+                {
+                    promotionloading ? (
+                        Array.from({ length: 3 }).map((_, index) => (
+                            <SwiperSlide key={`skeleton-${index}`} className="rounded-2xl shadow-category group">
+                                <SkeletonLoading height="229px" width="350px"/>
+                            </SwiperSlide>
+                        ))
+                    ):
+                    (
+                        promotiondata.data.map((data:any)=>(
+                            <img key={data.id} src={data.cover}/>
+                        ))
+                    )
+                }
             </div>
         </section>
         {/* <!--===============================

@@ -49,7 +49,17 @@ export const authapi = createApi({
             query:()=>({
                 url:"/frontend/slider"
             })
-        })
+        }),
+        getcategory : builder.query<any, void>({
+            query:()=>({
+                url:"/frontend/product-category"
+            })
+        }),
+        getpromotion : builder.query<any, void>({
+            query:()=>({
+                url:"/frontend/promotion?paginate=0&order_column=id&order_type=asc&type=5&status=5"
+            })
+        }),
     })
 })
-export const { useUserloginMutation , useUserregisterMutation , useGetsliderQuery } = authapi
+export const { useUserloginMutation , useUserregisterMutation , useGetsliderQuery , useGetcategoryQuery, useGetpromotionQuery } = authapi
