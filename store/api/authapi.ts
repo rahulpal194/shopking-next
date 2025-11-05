@@ -60,6 +60,11 @@ export const authapi = createApi({
                 url:"/frontend/promotion?paginate=0&order_column=id&order_type=asc&type=5&status=5"
             })
         }),
+        gettreandy : builder.query<any, void>({
+            query:()=>({
+                url:"/frontend/product-section"
+            })
+        }),
     })
 })
-export const { useUserloginMutation , useUserregisterMutation , useGetsliderQuery , useGetcategoryQuery, useGetpromotionQuery } = authapi
+export const { useUserloginMutation , useUserregisterMutation , useGetsliderQuery , useGetcategoryQuery, useGetpromotionQuery, useGettreandyQuery } = authapi

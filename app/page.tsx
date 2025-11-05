@@ -7,17 +7,18 @@ import benefits from '@/json/benefits.json'
 import brands from '@/json/brands.json'
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { useGetcategoryQuery, useGetpromotionQuery, useGetsliderQuery } from "@/store/api/authapi";
+import { useGetcategoryQuery, useGetpromotionQuery, useGetsliderQuery, useGettreandyQuery } from "@/store/api/authapi";
 import SkeletonLoading from "@/components/SkeletonLoading";
 
 export default function Home() {
     const { data: sliderdata, error, isLoading: sliderloading } = useGetsliderQuery()
     const { data: categorydata , isLoading: categoryloading} = useGetcategoryQuery()
     const { data: promotiondata , isLoading: promotionloading} = useGetpromotionQuery()
+    const { data: treandydata , isLoading: treandyloading} = useGettreandyQuery()
     const slides = sliderdata ?? [];
     const categories = categorydata ?? []
     const promotion = promotiondata ?? []
-    console.log(promotion)
+    const treandyproducts = treandydata?.data?.[0]?? []
     return (
       <>
         {/* <!--===============================
@@ -122,7 +123,7 @@ export default function Home() {
                         ))
                     ):
                     (
-                        promotiondata.data.map((data:any)=>(
+                        promotion.data.map((data:any)=>(
                             <img key={data.id} src={data.cover}/>
                         ))
                     )
@@ -141,9 +142,16 @@ export default function Home() {
                Trendy Collections
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
-                {products.slice(0,8).map((product)=>(
+                {
+                    treandyloading ? (
+                        Array.from({ length: 8}).map((_, index) => (
+                            <SkeletonLoading key={index} height="400px" width="100%"/>
+                        ))
+                    ):
+                ( treandyproducts?.products?.map((product:any)=>(
                     <ProductCard key={product.id} product={product}/>
-                ))}
+                 )))
+                }
             </div>
         </section>
         {/* <!--===============================
